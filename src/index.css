@@ -11,6 +11,7 @@ const initialItems = [
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 html {
@@ -81,7 +82,8 @@ input {
 
 .list {
   background-color: #3470BF;
-  color: #ffebb3;
+
+  color: #FFF;
   padding: 4rem 0;
 
   display: flex;
@@ -116,6 +118,7 @@ input {
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  
 }
 
 input[type="checkbox"] {

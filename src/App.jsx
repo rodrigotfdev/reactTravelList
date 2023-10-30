@@ -7,11 +7,18 @@ const initialItems = [
 ];
 
 export default function App() {
+  const [items, setItems] = useState([]);
+
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
-      <PackingList />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} />
       <Stats />
     </div>
   );
@@ -25,7 +32,7 @@ function Logo() {
   );
 }
 
-function Form() {
+function Form({ onAddItems }) {
   const [desc, setDesc] = useState("");
   const [qty, setQty] = useState(1);
 
@@ -36,6 +43,8 @@ function Form() {
 
     const newItem = { desc, qty, packed: false, id: Date.now() };
     console.log(newItem);
+
+    onAddItems(newItem);
 
     setDesc("");
     setQty(1);
@@ -67,12 +76,12 @@ function Form() {
   );
 }
 
-function PackingList() {
+function PackingList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
-          <Item itemObj={item} />
+        {items.map((item) => (
+          <Item itemObj={item} key={item.id} />
         ))}
       </ul>
     </div>
@@ -83,7 +92,7 @@ function Item({ itemObj }) {
   return (
     <li>
       <span style={itemObj.packed ? { textDecoration: "line-through" } : {}}>
-        {itemObj.quantity} {itemObj.description}
+        {itemObj.quantity} {itemObj.desc}
       </span>
       <button>❌</button>
     </li>
