@@ -24,8 +24,12 @@ export default function App() {
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItems={handleToggleItem} />
-      <Stats />
+      <PackingList
+        items={items}
+        onDeleteItem={handleDeleteItem}
+        onToggleItems={handleToggleItem}
+      />
+      <Stats items={items} />
     </div>
   );
 }
@@ -86,7 +90,12 @@ function PackingList({ items, onDeleteItem, onToggleItems }) {
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item itemObj={item} onDeleteItem={onDeleteItem} onToggleItems={onToggleItems} key={item.id} />
+          <Item
+            itemObj={item}
+            onDeleteItem={onDeleteItem}
+            onToggleItems={onToggleItems}
+            key={item.id}
+          />
         ))}
       </ul>
     </div>
@@ -96,7 +105,11 @@ function PackingList({ items, onDeleteItem, onToggleItems }) {
 function Item({ itemObj, onDeleteItem, onToggleItems }) {
   return (
     <li>
-      <input type="checkbox" value={itemObj.packed} onChange={() => onToggleItems(itemObj.id)} />
+      <input
+        type="checkbox"
+        value={itemObj.packed}
+        onChange={() => onToggleItems(itemObj.id)}
+      />
       <span style={itemObj.packed ? { textDecoration: "line-through" } : {}}>
         {itemObj.quantity} {itemObj.desc}
       </span>
@@ -105,10 +118,18 @@ function Item({ itemObj, onDeleteItem, onToggleItems }) {
   );
 }
 
-function Stats() {
+function Stats({ items }) {
+  if (!items.length) return <p className="stats"><em>Start adding some items to your packing list 🚀</em></p>;
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+  const percentage = Math.round((numPacked / numItems) * 100);
   return (
     <footer className="stats">
-      <em>You have X items on your list, and you already packed X (X%)</em>
+      
+      <em>
+        {percentage === 100 ? 'You got everything! Ready to go ✈' :  `You have ${numItems} items on your list, and you already packed ${numPacked} items (${percentage}%)`}
+      </em>
+  
     </footer>
   );
 }
