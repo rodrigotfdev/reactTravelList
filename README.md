@@ -1,8 +1,10 @@
-# React + Vite
+# About This Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+##Project Main Idea
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built using React + Vite. The main goal was to create an application with a dynamic travel list that, upon receiving user information through a form, adds these received details to the travel list.
+
+🔨 Project Functionalities
+
+* Sort the items in the list by entry order, description, and status.
