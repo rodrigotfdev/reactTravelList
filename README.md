@@ -26,7 +26,7 @@ This project was built using React + Vite. The main goal was to create an applic
 
 ## See it in practice
 
-You can preview the application at the following link: [VERCEL LIVE APP](https://reacttravellist.vercel.app/)
+You can preview the application at the following link: [VERCEL LIVE APP PREVIEW](https://reacttravellist.vercel.app/)
 
 or clone the repository to your computer and run 'npm install' and 'npm run dev' in the terminal to open it.
 
