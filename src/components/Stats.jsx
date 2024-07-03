@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Stats() {
   return (
-    <div>Stats</div>
-  )
+    <footer className="stats">
+      <em>You have X items on your list, and you already packed X (X%)</em>
+    </footer>
+  );
 }
