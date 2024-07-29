@@ -6,24 +6,23 @@ const initialItems = [
   { id: 3, description: "Charger", quantity: 12, packed: true },
 ];
 
-export default function PackingList({items, onDeleteItem}) {
+export default function PackingList({ items, onDeleteItem, onToggleItem }) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item itemObj={item} key={item.id} onDeleteItem={onDeleteItem} />
+          <Item itemObj={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem}/>
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ itemObj, onDeleteItem }) {
+function Item({ itemObj, onDeleteItem, onToggleItem }) {
   return (
     <li>
-      <span
-        style={itemObj.packed ? { textDecoration: "line-through" } : {}}
-      >
+      <input type="checkbox" value={itemObj.packed} onChange={() => onToggleItem(itemObj.id)} />
+      <span style={itemObj.packed ? { textDecoration: "line-through" } : {}}>
         {itemObj.quantity} {itemObj.description}
       </span>
       <button onClick={() => onDeleteItem(itemObj.id)}>❌</button>
