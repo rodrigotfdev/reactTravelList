@@ -6,19 +6,19 @@ const initialItems = [
   { id: 3, description: "Charger", quantity: 12, packed: true },
 ];
 
-export default function PackingList({items}) {
+export default function PackingList({items, onDeleteItem}) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item itemObj={item} key={item.id} />
+          <Item itemObj={item} key={item.id} onDeleteItem={onDeleteItem} />
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ itemObj }) {
+function Item({ itemObj, onDeleteItem }) {
   return (
     <li>
       <span
@@ -26,7 +26,7 @@ function Item({ itemObj }) {
       >
         {itemObj.quantity} {itemObj.description}
       </span>
-      <button>❌</button>
+      <button onClick={() => onDeleteItem(itemObj.id)}>❌</button>
     </li>
   );
 }
