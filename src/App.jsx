@@ -28,6 +28,10 @@ export default function App() {
     setItems((items) => [...items, item]);
   }
 
+  function handleClearList(item) {
+    setItems([])
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -36,6 +40,7 @@ export default function App() {
         items={items}
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onClearList={handleClearList}
       />
       <Stats numItems={numItems} numPacked={numPacked} />
     </div>
