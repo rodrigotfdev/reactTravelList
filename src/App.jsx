@@ -6,6 +6,12 @@ import Stats from "./components/Stats";
 import { useState } from "react";
 
 export default function App() {
+  const [items, setItems] = useState([]);
+
+  const numItems = items.length;
+
+  const numPacked = items.filter((item) => item.packed).length;
+
   function handleToggleItem(id) {
     setItems((items) =>
       items.map((item) =>
@@ -17,8 +23,6 @@ export default function App() {
   function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
-
-  const [items, setItems] = useState([]);
 
   function handleAddItems(item) {
     setItems((items) => [...items, item]);
@@ -33,7 +37,7 @@ export default function App() {
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
       />
-      <Stats />
+      <Stats numItems={numItems} numPacked={numPacked} />
     </div>
   );
 }
