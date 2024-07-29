@@ -26,12 +26,12 @@ This project was built using React + Vite. The main goal was to create an applic
 
 ## See it in practice
 
-You can preview the application at the following link: [NETLIFY LIVE APP PREVIEW]https://reacttravellist.netlify.app/
+You can preview the application at the following link: [NETLIFY LIVE APP PREVIEW] https://reacttravellist.netlify.app/
 
 or clone the repository to your computer and run 'npm install' and 'npm run dev' in the terminal to open it.
 
 ## Project Images
 
-![image](https://github.com/rodrigotfdev/reactTravelList/assets/52326702/81d51336-7da1-4e04-bee5-68cff836f2ee)
+
 
 ![image](https://github.com/user-attachments/assets/6d0c77ca-ca48-4722-b80e-dc4802440c97)
